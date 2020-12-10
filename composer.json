@@ -1,0 +1,53 @@
+{
+    "name": "luca-rath/php-json-schema",
+    "description": "PHP classes to help create json schemas",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Luca Rath-Heel",
+            "email": "luca-rath@hotmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "webmozart/assert": "^1.9"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^0.12.59",
+        "phpstan/phpstan-webmozart-assert": "^0.12.7",
+        "phpstan/phpstan-strict-rules": "^0.12.5",
+        "phpstan/phpstan-deprecation-rules": "^0.12.5",
+        "phpstan/extension-installer": "^1.0",
+        "friendsofphp/php-cs-fixer": "^2.17",
+        "phpunit/phpunit": "^9.5",
+        "phpstan/phpstan-phpunit": "^0.12.16",
+        "phpspec/prophecy": "^1.12",
+        "jangregor/phpstan-prophecy": "^0.8.1",
+        "thecodingmachine/phpstan-strict-rules": "^0.12.1",
+        "phpspec/prophecy-phpunit": "^2.0"
+    },
+    "scripts": {
+        "php-cs": "@php vendor/bin/php-cs-fixer fix --verbose --diff --dry-run",
+        "php-cs-fix": "@php vendor/bin/php-cs-fixer fix",
+        "phpstan": "@php vendor/bin/phpstan analyze src tests",
+        "phpunit": "@php vendor/bin/phpunit",
+        "lint": [
+            "@php-cs",
+            "@phpstan"
+        ],
+        "test": "@phpunit"
+    },
+    "autoload": {
+        "psr-4": {
+            "JsonSchema\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JsonSchema\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

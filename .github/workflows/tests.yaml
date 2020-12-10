@@ -1,0 +1,120 @@
+name: Tests
+
+on:
+    pull_request:
+    push:
+        branches:
+            - main
+            - '\d+\.\d+'
+
+jobs:
+    php-cs-fixer:
+        name: php-cs-fixer
+        runs-on: ubuntu-latest
+        steps:
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: 7.4
+                  tools: composer
+
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Determine composer cache directory
+              id: composer-cache
+              run: echo "::set-output name=directory::$(composer config cache-dir)"
+
+            - name: Cache composer dependencies
+              uses: actions/cache@v2
+              with:
+                  path: ${{ steps.composer-cache.outputs.directory }}
+                  key: composer-${{ hashFiles('**/composer.lock') }}
+                  restore-keys: composer-
+
+            - name: Create php-cs-fixer directory
+              run: mkdir --parents tools/php-cs-fixer
+
+            - name: Install php-cs-fixer
+              run: composer require --working-dir=tools/php-cs-fixer friendsofphp/php-cs-fixer
+
+            - name: PHP Coding Standards Fixer
+              run: tools/php-cs-fixer/vendor/bin/php-cs-fixer fix --verbose --diff --dry-run
+
+    phpstan:
+        name: phpstan
+        runs-on: ubuntu-latest
+        steps:
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: 7.4
+                  tools: composer
+
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Determine composer cache directory
+              id: composer-cache
+              run: echo "::set-output name=directory::$(composer config cache-dir)"
+
+            - name: Cache composer dependencies
+              uses: actions/cache@v2
+              with:
+                  path: ${{ steps.composer-cache.outputs.directory }}
+                  key: composer-${{ hashFiles('**/composer.lock') }}
+                  restore-keys: composer-
+
+            - name: Validate composer.json
+              run: composer validate --strict
+
+            - name: Install dependencies
+              run: composer install --no-interaction
+
+            - name: PHPStan
+              run: composer phpstan
+
+    phpunit:
+        name: phpunit
+        runs-on: ubuntu-latest
+        steps:
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: 7.4
+                  tools: composer
+                  coverage: pcov
+
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Determine composer cache directory
+              id: composer-cache
+              run: echo "::set-output name=directory::$(composer config cache-dir)"
+
+            - name: Cache composer dependencies
+              uses: actions/cache@v2
+              with:
+                  path: ${{ steps.composer-cache.outputs.directory }}
+                  key: composer-${{ hashFiles('**/composer.lock') }}
+                  restore-keys: composer-
+
+            - name: Validate composer.json
+              run: composer validate --strict
+
+            - name: Install dependencies
+              run: composer install --no-interaction
+
+            - name: PHPUnit
+              run: composer phpunit -- --coverage-clover build/logs/clover.xml
+
+            - name: Create php-coveralls directory
+              run: mkdir --parents tools/php-coveralls
+
+            - name: Install php-coveralls
+              run: composer require --working-dir=tools/php-coveralls php-coveralls/php-coveralls --no-interaction
+
+            - name: Upload coverage results to coveralls.io
+              env:
+                  COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: tools/php-coveralls/vendor/bin/php-coveralls --coverage_clover build/logs/clover.xml
