@@ -1,8 +1,11 @@
 name: Tests
 
 on:
-    push:
     pull_request:
+    push:
+        branches:
+            - main
+            - '\d+\.\d+'
 
 jobs:
     php-cs-fixer:
@@ -103,7 +106,7 @@ jobs:
               run: composer install --no-interaction
 
             - name: PHPUnit
-              run: composer phpunit --coverage-clover build/logs/clover.xml
+              run: composer phpunit -- --coverage-clover build/logs/clover.xml
 
             - name: Create php-coveralls directory
               run: mkdir --parents tools/php-coveralls
