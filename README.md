@@ -10,7 +10,7 @@ PHP classes to help create json schemas
 ## Installation
 
 ```bash
-composer require php-json-schema/php-json-schema
+composer require luca-rath/php-json-schema
 ```
 
 ## Usage
