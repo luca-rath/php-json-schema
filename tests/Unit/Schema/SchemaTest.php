@@ -18,9 +18,6 @@ class SchemaTest extends AbstractSchemaTest
         return [];
     }
 
-    /**
-     * @covers \JsonSchema\Schema\Schema::__construct
-     */
     public function testConstruct(): void
     {
         $schema = new Schema();
@@ -28,9 +25,6 @@ class SchemaTest extends AbstractSchemaTest
         static::assertEmpty((array) $schema->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\Schema::type
-     */
     public function testType(): void
     {
         $schema1 = Schema::create();

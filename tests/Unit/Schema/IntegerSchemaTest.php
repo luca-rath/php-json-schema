@@ -20,9 +20,6 @@ class IntegerSchemaTest extends AbstractSchemaTest
         ];
     }
 
-    /**
-     * @covers \JsonSchema\Schema\IntegerSchema::__construct
-     */
     public function testConstruct(): void
     {
         $schema = new IntegerSchema();
@@ -30,9 +27,6 @@ class IntegerSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'integer'], $schema->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\IntegerSchema::nullable
-     */
     public function testNullable(): void
     {
         $schema1 = new IntegerSchema();
@@ -44,9 +38,6 @@ class IntegerSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'integer'], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\IntegerSchema::minimum
-     */
     public function testMinimum(): void
     {
         $schema1 = new IntegerSchema();
@@ -58,9 +49,6 @@ class IntegerSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'integer'], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\IntegerSchema::maximum
-     */
     public function testMaximum(): void
     {
         $schema1 = new IntegerSchema();
@@ -72,9 +60,6 @@ class IntegerSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'integer'], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\IntegerSchema::exclusiveMinimum
-     */
     public function testExclusiveMinimum(): void
     {
         $schema1 = new IntegerSchema();
@@ -86,9 +71,6 @@ class IntegerSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'integer'], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\IntegerSchema::exclusiveMaximum
-     */
     public function testExclusiveMaximum(): void
     {
         $schema1 = new IntegerSchema();
@@ -100,9 +82,6 @@ class IntegerSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'integer'], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\IntegerSchema::multipleOf
-     */
     public function testMultipleOf(): void
     {
         $schema1 = new IntegerSchema();

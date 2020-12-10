@@ -20,9 +20,6 @@ class ArraySchemaTest extends AbstractSchemaTest
         ];
     }
 
-    /**
-     * @covers \JsonSchema\Schema\ArraySchema::__construct
-     */
     public function testConstruct(): void
     {
         $schema = new ArraySchema();
@@ -30,9 +27,6 @@ class ArraySchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'array'], $schema->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\ArraySchema::nullable
-     */
     public function testNullable(): void
     {
         $schema1 = new ArraySchema();
@@ -44,9 +38,6 @@ class ArraySchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'array'], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\ArraySchema::items
-     */
     public function testItems(): void
     {
         $itemsJsonSchema1 = (object) ['foo' => 'bar'];
@@ -69,9 +60,6 @@ class ArraySchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'array'], $schema4->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\ArraySchema::contains
-     */
     public function testContains(): void
     {
         $containsJsonSchema = (object) ['foo' => 'bar'];
@@ -86,9 +74,6 @@ class ArraySchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'array'], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\ArraySchema::additionalItems
-     */
     public function testAdditionalItems(): void
     {
         $additionalItemsJsonSchema = (object) ['foo' => 'bar'];
@@ -107,9 +92,6 @@ class ArraySchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'array'], $schema5->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\ArraySchema::minItems
-     */
     public function testMinItems(): void
     {
         $schema1 = new ArraySchema();
@@ -121,9 +103,6 @@ class ArraySchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'array'], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\ArraySchema::maxItems
-     */
     public function testMaxItems(): void
     {
         $schema1 = new ArraySchema();
@@ -135,9 +114,6 @@ class ArraySchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'array'], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\ArraySchema::minContains
-     */
     public function testMinContains(): void
     {
         $schema1 = new ArraySchema();
@@ -149,9 +125,6 @@ class ArraySchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'array'], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\ArraySchema::maxContains
-     */
     public function testMaxContains(): void
     {
         $schema1 = new ArraySchema();
@@ -163,9 +136,6 @@ class ArraySchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'array'], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\ArraySchema::uniqueItems
-     */
     public function testUniqueItems(): void
     {
         $schema1 = new ArraySchema();

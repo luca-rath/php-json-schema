@@ -20,9 +20,6 @@ class BooleanSchemaTest extends AbstractSchemaTest
         ];
     }
 
-    /**
-     * @covers \JsonSchema\Schema\BooleanSchema::__construct
-     */
     public function testConstruct(): void
     {
         $schema = new BooleanSchema();
@@ -30,9 +27,6 @@ class BooleanSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'boolean'], $schema->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\BooleanSchema::nullable
-     */
     public function testNullable(): void
     {
         $schema1 = new BooleanSchema();

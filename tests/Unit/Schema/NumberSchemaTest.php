@@ -20,9 +20,6 @@ class NumberSchemaTest extends AbstractSchemaTest
         ];
     }
 
-    /**
-     * @covers \JsonSchema\Schema\NumberSchema::__construct
-     */
     public function testConstruct(): void
     {
         $schema = new NumberSchema();
@@ -30,9 +27,6 @@ class NumberSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'number'], $schema->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\NumberSchema::nullable
-     */
     public function testNullable(): void
     {
         $schema1 = new NumberSchema();
@@ -44,9 +38,6 @@ class NumberSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'number'], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\NumberSchema::minimum
-     */
     public function testMinimum(): void
     {
         $schema1 = new NumberSchema();
@@ -60,9 +51,6 @@ class NumberSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'number'], $schema4->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\NumberSchema::maximum
-     */
     public function testMaximum(): void
     {
         $schema1 = new NumberSchema();
@@ -76,9 +64,6 @@ class NumberSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'number'], $schema4->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\NumberSchema::exclusiveMinimum
-     */
     public function testExclusiveMinimum(): void
     {
         $schema1 = new NumberSchema();
@@ -92,9 +77,6 @@ class NumberSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'number'], $schema4->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\NumberSchema::exclusiveMaximum
-     */
     public function testExclusiveMaximum(): void
     {
         $schema1 = new NumberSchema();
@@ -108,9 +90,6 @@ class NumberSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'number'], $schema4->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\NumberSchema::multipleOf
-     */
     public function testMultipleOf(): void
     {
         $schema1 = new NumberSchema();
