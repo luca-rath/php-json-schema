@@ -29,12 +29,6 @@ class PropertiesKeyword extends AbstractKeyword
             $propertiesValue[$property->getName()] = $property->toJsonSchema();
         }
 
-        if (0 === \count($propertiesValue)) {
-            parent::__construct(static::NAME, null);
-
-            return;
-        }
-
         parent::__construct(static::NAME, (object) $propertiesValue);
     }
 }
