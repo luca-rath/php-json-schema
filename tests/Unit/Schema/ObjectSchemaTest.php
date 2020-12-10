@@ -45,9 +45,6 @@ class ObjectSchemaTest extends AbstractSchemaTest
         return $property;
     }
 
-    /**
-     * @covers \JsonSchema\Schema\ObjectSchema::__construct
-     */
     public function testConstruct(): void
     {
         $schema = new ObjectSchema();
@@ -55,9 +52,6 @@ class ObjectSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'object'], $schema->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\ObjectSchema::nullable
-     */
     public function testNullable(): void
     {
         $schema1 = new ObjectSchema();
@@ -69,9 +63,6 @@ class ObjectSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'object'], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\ObjectSchema::properties
-     */
     public function testProperties(): void
     {
         $property1 = $this->mockProperty('property1', false, (object) []);
@@ -155,9 +146,6 @@ class ObjectSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'object'], $schema7->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\ObjectSchema::additionalProperties
-     */
     public function testAdditionalProperties(): void
     {
         $additionalPropertiesJsonSchema = (object) ['foo' => 'bar'];
@@ -176,9 +164,6 @@ class ObjectSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'object'], $schema5->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\ObjectSchema::minProperties
-     */
     public function testMinProperties(): void
     {
         $schema1 = new ObjectSchema();
@@ -190,9 +175,6 @@ class ObjectSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'object'], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\ObjectSchema::maxProperties
-     */
     public function testMaxProperties(): void
     {
         $schema1 = new ObjectSchema();
@@ -204,9 +186,6 @@ class ObjectSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'object'], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\ObjectSchema::propertyNames
-     */
     public function testPropertyNames(): void
     {
         $propertyNamesJsonSchema = (object) ['type' => 'string', 'foo' => 'bar'];

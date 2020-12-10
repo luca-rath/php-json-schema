@@ -21,9 +21,6 @@ class StringSchemaTest extends AbstractSchemaTest
         ];
     }
 
-    /**
-     * @covers \JsonSchema\Schema\StringSchema::__construct
-     */
     public function testConstruct(): void
     {
         $schema = new StringSchema();
@@ -31,9 +28,6 @@ class StringSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'string'], $schema->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\StringSchema::nullable
-     */
     public function testNullable(): void
     {
         $schema1 = new StringSchema();
@@ -45,9 +39,6 @@ class StringSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'string'], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\StringSchema::minLength
-     */
     public function testMinLength(): void
     {
         $schema1 = new StringSchema();
@@ -59,9 +50,6 @@ class StringSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'string'], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\StringSchema::maxLength
-     */
     public function testMaxLength(): void
     {
         $schema1 = new StringSchema();
@@ -73,9 +61,6 @@ class StringSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'string'], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\StringSchema::pattern
-     */
     public function testPattern(): void
     {
         $schema1 = new StringSchema();
@@ -87,9 +72,6 @@ class StringSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'string'], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\StringSchema::format
-     */
     public function testFormat(): void
     {
         $schema1 = new StringSchema();

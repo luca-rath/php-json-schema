@@ -22,9 +22,6 @@ class PropertyTest extends TestCase
         return $schema;
     }
 
-    /**
-     * @covers \JsonSchema\Property\Property::__construct
-     */
     public function testConstruct(): void
     {
         $jsonSchema = (object) [];
@@ -36,9 +33,6 @@ class PropertyTest extends TestCase
         static::assertSame($jsonSchema, $property->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Property\Property::create
-     */
     public function testCreate(): void
     {
         $jsonSchema = (object) [];
@@ -50,10 +44,6 @@ class PropertyTest extends TestCase
         static::assertSame($jsonSchema, $property->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Property\Property::name
-     * @covers \JsonSchema\Property\Property::getName
-     */
     public function testName(): void
     {
         $schema = $this->mockSchema();
@@ -65,10 +55,6 @@ class PropertyTest extends TestCase
         static::assertSame('another-name', $property2->getName());
     }
 
-    /**
-     * @covers \JsonSchema\Property\Property::required
-     * @covers \JsonSchema\Property\Property::isRequired
-     */
     public function testRequired(): void
     {
         $schema = $this->mockSchema();
@@ -80,10 +66,6 @@ class PropertyTest extends TestCase
         static::assertTrue($property2->isRequired());
     }
 
-    /**
-     * @covers \JsonSchema\Property\Property::schema
-     * @covers \JsonSchema\Property\Property::toJsonSchema
-     */
     public function testSchema(): void
     {
         $jsonSchema1 = (object) [];
@@ -99,10 +81,6 @@ class PropertyTest extends TestCase
         static::assertSame($jsonSchema2, $property2->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Property\Property::dependentRequired
-     * @covers \JsonSchema\Property\Property::getDependentRequired
-     */
     public function testDependentRequired(): void
     {
         $schema = $this->mockSchema();
@@ -114,9 +92,6 @@ class PropertyTest extends TestCase
         static::assertSame(['foo', 'bar'], $property2->getDependentRequired());
     }
 
-    /**
-     * @covers \JsonSchema\Property\Property::dependentRequired
-     */
     public function testDependentRequiredWithEmptyArray(): void
     {
         $schema = $this->mockSchema();
@@ -127,9 +102,6 @@ class PropertyTest extends TestCase
         $property->dependentRequired([]);
     }
 
-    /**
-     * @covers \JsonSchema\Property\Property::dependentRequired
-     */
     public function testDependentRequiredWithMap(): void
     {
         $schema = $this->mockSchema();
@@ -140,9 +112,6 @@ class PropertyTest extends TestCase
         $property->dependentRequired(['foo' => 'bar', 'bar' => 'baz']);
     }
 
-    /**
-     * @covers \JsonSchema\Property\Property::dependentRequired
-     */
     public function testDependentRequiredWithNonUniqueValues(): void
     {
         $schema = $this->mockSchema();
@@ -153,9 +122,6 @@ class PropertyTest extends TestCase
         $property->dependentRequired(['foo', 'foo']);
     }
 
-    /**
-     * @covers \JsonSchema\Property\Property::dependentRequired
-     */
     public function testDependentRequiredWithEmptyString(): void
     {
         $schema = $this->mockSchema();
@@ -166,10 +132,6 @@ class PropertyTest extends TestCase
         $property->dependentRequired(['foo', '']);
     }
 
-    /**
-     * @covers \JsonSchema\Property\Property::dependentSchema
-     * @covers \JsonSchema\Property\Property::getDependentSchema
-     */
     public function testDependentSchema(): void
     {
         $schema1 = $this->mockSchema();
@@ -184,9 +146,6 @@ class PropertyTest extends TestCase
         static::assertSame($jsonSchema2, $property2->getDependentSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Property\Property::toJsonSchema
-     */
     public function testToJsonSchema(): void
     {
         $jsonSchema = (object) [];

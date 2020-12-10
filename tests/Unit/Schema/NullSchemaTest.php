@@ -20,9 +20,6 @@ class NullSchemaTest extends AbstractSchemaTest
         ];
     }
 
-    /**
-     * @covers \JsonSchema\Schema\NullSchema::__construct
-     */
     public function testConstruct(): void
     {
         $schema = new NullSchema();

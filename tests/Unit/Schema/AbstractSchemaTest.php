@@ -61,9 +61,6 @@ abstract class AbstractSchemaTest extends TestCase
         return $schema;
     }
 
-    /**
-     * @covers \JsonSchema\Schema\AbstractSchema::create
-     */
     public function testCreate(): void
     {
         $schema = static::getSchemaClass()::create();
@@ -71,9 +68,6 @@ abstract class AbstractSchemaTest extends TestCase
         static::assertJsonSchemaEquals([], $schema->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\AbstractSchema::with
-     */
     public function testWith(): void
     {
         $keyword1 = $this->mockKeyword('foo', 'bar');
@@ -94,9 +88,6 @@ abstract class AbstractSchemaTest extends TestCase
         static::assertJsonSchemaEquals(['foo' => null], $schema5->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\AbstractSchema::comment
-     */
     public function testComment(): void
     {
         $schema1 = static::createSchema();
@@ -108,9 +99,6 @@ abstract class AbstractSchemaTest extends TestCase
         static::assertJsonSchemaEquals([], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\AbstractSchema::title
-     */
     public function testTitle(): void
     {
         $schema1 = static::createSchema();
@@ -122,9 +110,6 @@ abstract class AbstractSchemaTest extends TestCase
         static::assertJsonSchemaEquals([], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\AbstractSchema::description
-     */
     public function testDescription(): void
     {
         $schema1 = static::createSchema();
@@ -136,9 +121,6 @@ abstract class AbstractSchemaTest extends TestCase
         static::assertJsonSchemaEquals([], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\AbstractSchema::deprecated
-     */
     public function testDeprecated(): void
     {
         $schema1 = static::createSchema();
@@ -152,9 +134,6 @@ abstract class AbstractSchemaTest extends TestCase
         static::assertJsonSchemaEquals([], $schema4->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\AbstractSchema::readOnly
-     */
     public function testReadOnly(): void
     {
         $schema1 = static::createSchema();
@@ -168,9 +147,6 @@ abstract class AbstractSchemaTest extends TestCase
         static::assertJsonSchemaEquals([], $schema4->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\AbstractSchema::writeOnly
-     */
     public function testWriteOnly(): void
     {
         $schema1 = static::createSchema();
@@ -184,9 +160,6 @@ abstract class AbstractSchemaTest extends TestCase
         static::assertJsonSchemaEquals([], $schema4->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\AbstractSchema::default
-     */
     public function testDefault(): void
     {
         $schema1 = static::createSchema();
@@ -210,9 +183,6 @@ abstract class AbstractSchemaTest extends TestCase
         static::assertJsonSchemaEquals(['default' => null], $schema9->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\AbstractSchema::examples
-     */
     public function testExamples(): void
     {
         $schema1 = static::createSchema();
@@ -242,9 +212,6 @@ abstract class AbstractSchemaTest extends TestCase
         static::assertJsonSchemaEquals([], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\AbstractSchema::anyOf
-     */
     public function testAnyOf(): void
     {
         $anyOf1 = $this->mockSchema((object) ['foo' => 'bar']);
@@ -266,9 +233,6 @@ abstract class AbstractSchemaTest extends TestCase
         static::assertJsonSchemaEquals([], $schema4->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\AbstractSchema::allOf
-     */
     public function testAllOf(): void
     {
         $allOf1 = $this->mockSchema((object) ['foo' => 'bar']);
@@ -290,9 +254,6 @@ abstract class AbstractSchemaTest extends TestCase
         static::assertJsonSchemaEquals([], $schema4->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\AbstractSchema::oneOf
-     */
     public function testOneOf(): void
     {
         $oneOf1 = $this->mockSchema((object) ['foo' => 'bar']);
@@ -314,9 +275,6 @@ abstract class AbstractSchemaTest extends TestCase
         static::assertJsonSchemaEquals([], $schema4->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\AbstractSchema::not
-     */
     public function testNot(): void
     {
         $not = $this->mockSchema((object) ['foo' => 'bar']);
@@ -330,9 +288,6 @@ abstract class AbstractSchemaTest extends TestCase
         static::assertJsonSchemaEquals([], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\AbstractSchema::if
-     */
     public function testIf(): void
     {
         $if = $this->mockSchema((object) ['foo' => 'bar']);
@@ -346,9 +301,6 @@ abstract class AbstractSchemaTest extends TestCase
         static::assertJsonSchemaEquals([], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\AbstractSchema::then
-     */
     public function testThen(): void
     {
         $then = $this->mockSchema((object) ['foo' => 'bar']);
@@ -362,9 +314,6 @@ abstract class AbstractSchemaTest extends TestCase
         static::assertJsonSchemaEquals([], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\AbstractSchema::else
-     */
     public function testElse(): void
     {
         $else = $this->mockSchema((object) ['foo' => 'bar']);
@@ -378,9 +327,6 @@ abstract class AbstractSchemaTest extends TestCase
         static::assertJsonSchemaEquals([], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\AbstractSchema::const
-     */
     public function testConst(): void
     {
         $schema1 = static::createSchema();
@@ -404,9 +350,6 @@ abstract class AbstractSchemaTest extends TestCase
         static::assertJsonSchemaEquals(['const' => null], $schema9->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\AbstractSchema::enum
-     */
     public function testEnum(): void
     {
         $schema1 = static::createSchema();
@@ -436,9 +379,6 @@ abstract class AbstractSchemaTest extends TestCase
         static::assertJsonSchemaEquals([], $schema3->toJsonSchema());
     }
 
-    /**
-     * @covers \JsonSchema\Schema\AbstractSchema::toJsonSchema
-     */
     public function testToJsonSchema(): void
     {
         $keyword1 = $this->mockKeyword('foo', 'bar');
