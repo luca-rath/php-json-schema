@@ -2,7 +2,7 @@
 
 [![GitHub](https://img.shields.io/github/license/luca-rath/php-json-schema)](LICENSE)
 [![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/luca-rath/php-json-schema?sort=semver)](https://github.com/luca-rath/php-json-schema/releases)
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/luca-rath/php-json-schema/tests?label=github%20actions)](https://github.com/luca-rath/php-json-schema/actions?query=workflow%3Atests)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/luca-rath/php-json-schema/Tests?label=github%20actions)](https://github.com/luca-rath/php-json-schema/actions?query=workflow%3Atests)
 [![Coveralls github](https://img.shields.io/coveralls/github/luca-rath/php-json-schema?label=coveralls)](https://coveralls.io/github/luca-rath/php-json-schema)
 
 PHP classes to help create json schemas
