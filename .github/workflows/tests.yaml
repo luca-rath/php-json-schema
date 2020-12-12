@@ -117,6 +117,7 @@ jobs:
             - name: Upload coverage results to scrutinizer
               run: >-
                   tools/ocular/vendor/bin/ocular code-coverage:upload
+                  --token ${{ secrets.SCRUTINIZER_ACCESS_TOKEN }}
                   --revision ${{ github.sha }}
                   --repository ${{ github.repository }}
                   --format=php-clover
