@@ -92,6 +92,24 @@ class ArraySchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'array'], $schema5->toJsonSchema());
     }
 
+    public function testUnevaluatedItems(): void
+    {
+        $unevaluatedItemsJsonSchema = (object) ['foo' => 'bar'];
+        $unevaluatedItemsSchema = $this->mockSchema($unevaluatedItemsJsonSchema);
+
+        $schema1 = new ArraySchema();
+        $schema2 = $schema1->unevaluatedItems($unevaluatedItemsSchema->reveal());
+        $schema3 = $schema2->unevaluatedItems(true);
+        $schema4 = $schema3->unevaluatedItems(false);
+        $schema5 = $schema4->unevaluatedItems(null);
+
+        static::assertEquals((object) ['type' => 'array'], $schema1->toJsonSchema());
+        static::assertEquals((object) ['type' => 'array', 'unevaluatedItems' => $unevaluatedItemsJsonSchema], $schema2->toJsonSchema());
+        static::assertEquals((object) ['type' => 'array', 'unevaluatedItems' => true], $schema3->toJsonSchema());
+        static::assertEquals((object) ['type' => 'array', 'unevaluatedItems' => false], $schema4->toJsonSchema());
+        static::assertEquals((object) ['type' => 'array'], $schema5->toJsonSchema());
+    }
+
     public function testMinItems(): void
     {
         $schema1 = new ArraySchema();
