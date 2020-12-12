@@ -106,15 +106,13 @@ jobs:
               run: composer install --no-interaction
 
             - name: PHPUnit
-              run: composer phpunit -- --coverage-clover build/logs/clover.xml
+              run: composer phpunit -- --coverage-clover build/logs/coverage.clover
 
-            - name: Create php-coveralls directory
-              run: mkdir --parents tools/php-coveralls
+            - name: Create tools/ocular directory
+              run: mkdir --parents tools/ocular
 
-            - name: Install php-coveralls
-              run: composer require --working-dir=tools/php-coveralls php-coveralls/php-coveralls --no-interaction
+            - name: Install ocular
+              run: composer require --working-dir=tools/ocular scrutinizer/ocular --no-interaction
 
-            - name: Upload coverage results to coveralls.io
-              env:
-                  COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              run: tools/php-coveralls/vendor/bin/php-coveralls --coverage_clover build/logs/clover.xml
+            - name: Upload coverage results to scrutinizer
+              run: tools/ocular/vendor/bin/ocular code-coverage:upload --format=php-clover --coverage_clover=build/logs/coverage.clover
