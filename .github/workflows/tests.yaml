@@ -115,4 +115,4 @@ jobs:
               run: composer require --working-dir=tools/ocular scrutinizer/ocular --no-interaction
 
             - name: Upload coverage results to scrutinizer
-              run: tools/ocular/vendor/bin/ocular code-coverage:upload --format=php-clover --coverage_clover=build/logs/coverage.clover
+              run: tools/ocular/vendor/bin/ocular code-coverage:upload --format=php-clover build/logs/coverage.clover
