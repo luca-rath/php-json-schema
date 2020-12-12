@@ -11,6 +11,7 @@ use JsonSchema\Keyword\PropertiesKeyword;
 use JsonSchema\Keyword\PropertyNamesKeyword;
 use JsonSchema\Keyword\RequiredKeyword;
 use JsonSchema\Keyword\TypeKeyword;
+use JsonSchema\Keyword\UnevaluatedPropertiesKeyword;
 use JsonSchema\Property\PropertyInterface;
 
 class ObjectSchema extends AbstractSchema
@@ -61,6 +62,18 @@ class ObjectSchema extends AbstractSchema
     {
         return $this->with(
             new AdditionalPropertiesKeyword($additionalProperties)
+        );
+    }
+
+    /**
+     * @param bool|SchemaInterface|null $unevaluatedProperties
+     *
+     * @return static
+     */
+    public function unevaluatedProperties($unevaluatedProperties): self
+    {
+        return $this->with(
+            new UnevaluatedPropertiesKeyword($unevaluatedProperties)
         );
     }
 

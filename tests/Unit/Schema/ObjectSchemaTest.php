@@ -164,6 +164,24 @@ class ObjectSchemaTest extends AbstractSchemaTest
         static::assertEquals((object) ['type' => 'object'], $schema5->toJsonSchema());
     }
 
+    public function testUnevaluatedProperties(): void
+    {
+        $unevaluatedPropertiesJsonSchema = (object) ['foo' => 'bar'];
+        $unevaluatedPropertiesSchema = $this->mockSchema($unevaluatedPropertiesJsonSchema);
+
+        $schema1 = new ObjectSchema();
+        $schema2 = $schema1->unevaluatedProperties($unevaluatedPropertiesSchema->reveal());
+        $schema3 = $schema2->unevaluatedProperties(true);
+        $schema4 = $schema3->unevaluatedProperties(false);
+        $schema5 = $schema4->unevaluatedProperties(null);
+
+        static::assertEquals((object) ['type' => 'object'], $schema1->toJsonSchema());
+        static::assertEquals((object) ['type' => 'object', 'unevaluatedProperties' => $unevaluatedPropertiesJsonSchema], $schema2->toJsonSchema());
+        static::assertEquals((object) ['type' => 'object', 'unevaluatedProperties' => true], $schema3->toJsonSchema());
+        static::assertEquals((object) ['type' => 'object', 'unevaluatedProperties' => false], $schema4->toJsonSchema());
+        static::assertEquals((object) ['type' => 'object'], $schema5->toJsonSchema());
+    }
+
     public function testMinProperties(): void
     {
         $schema1 = new ObjectSchema();

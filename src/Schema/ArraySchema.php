@@ -10,6 +10,7 @@ use JsonSchema\Keyword\MaxItemsKeyword;
 use JsonSchema\Keyword\MinContainsKeyword;
 use JsonSchema\Keyword\MinItemsKeyword;
 use JsonSchema\Keyword\TypeKeyword;
+use JsonSchema\Keyword\UnevaluatedItemsKeyword;
 use JsonSchema\Keyword\UniqueItemsKeyword;
 
 class ArraySchema extends AbstractSchema
@@ -68,6 +69,18 @@ class ArraySchema extends AbstractSchema
     {
         return $this->with(
             new AdditionalItemsKeyword($additionalItems)
+        );
+    }
+
+    /**
+     * @param bool|SchemaInterface|null $unevaluatedItems
+     *
+     * @return static
+     */
+    public function unevaluatedItems($unevaluatedItems): self
+    {
+        return $this->with(
+            new UnevaluatedItemsKeyword($unevaluatedItems)
         );
     }
 
