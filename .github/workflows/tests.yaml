@@ -88,8 +88,6 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v2
 
-            - run: git rev-parse HEAD
-
             - name: Determine composer cache directory
               id: composer-cache
               run: echo "::set-output name=directory::$(composer config cache-dir)"
@@ -119,6 +117,7 @@ jobs:
             - name: Upload coverage results to scrutinizer
               run: >-
                   tools/ocular/vendor/bin/ocular code-coverage:upload
-                  --revision ${{ github.sha }}
+                  --repository g/${{ github.repository }}
+                  --revision ${{ github.event.pull_request.head.sha || github.sha }}
                   --format=php-clover
                   build/logs/coverage.clover
