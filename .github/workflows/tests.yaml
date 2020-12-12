@@ -88,6 +88,8 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v2
 
+            - run: git rev-parse HEAD
+
             - name: Determine composer cache directory
               id: composer-cache
               run: echo "::set-output name=directory::$(composer config cache-dir)"
