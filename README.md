@@ -4,6 +4,8 @@
 [![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/luca-rath/php-json-schema?sort=semver)](https://github.com/luca-rath/php-json-schema/releases)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/luca-rath/php-json-schema/Tests?label=github%20actions)](https://github.com/luca-rath/php-json-schema/actions?query=workflow%3Atests)
 [![Coveralls github](https://img.shields.io/coveralls/github/luca-rath/php-json-schema?label=coveralls)](https://coveralls.io/github/luca-rath/php-json-schema)
+[![Scrutinizer build (GitHub/Bitbucket)](https://img.shields.io/scrutinizer/build/g/luca-rath/php-json-schema/main?label=scrutinizer)](https://scrutinizer-ci.com/g/luca-rath/php-json-schema/build-status/main)
+[![Scrutinizer code quality (GitHub/Bitbucket)](https://img.shields.io/scrutinizer/quality/g/luca-rath/php-json-schema/main)](https://scrutinizer-ci.com/g/luca-rath/php-json-schema/?branch=main)
 
 PHP classes to help create json schemas
 
